@@ -16,7 +16,7 @@ jobs:
         with:
           name: projetozipado.zip
           path: |
-            '**.py'
+            **.py
             README.md
 
 
