@@ -19,14 +19,21 @@ jobs:
             **.py
             README.md
 
+
   deploy:
     runs-on: unbuntu-latest
+=======
+
+  deploy:
+    runs-on: ubuntu-latest
+
     needs: deliver
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: projetozipado.zip
       - name: Display structure of downloaded files
+
         run: ls -R
 
 
@@ -62,3 +69,6 @@ jobs:
           context: .
           push: false
           tags: user/app:latest
+=======
+        run: ls -R
+
