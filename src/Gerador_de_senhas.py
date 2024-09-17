@@ -17,8 +17,7 @@ def gerador_de_senhas():
         else:
             senha = generate_password(comprimento)
             print(f"A sua senha gerada é: {senha}")
+            return senha
     except ValueError:
         print("Por favor, insira um número válido.")
-
-# Chama a função principal
-gerador_de_senhas()
+        return None
