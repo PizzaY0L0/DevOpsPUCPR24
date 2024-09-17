@@ -1,21 +1,21 @@
+import string
 from src.Gerador_de_senhas import gerador_de_senhas, generate_password
 from unittest import TestCase
 from unittest.mock import patch
-import string
 
 class TestGeradorDeSenhas(TestCase):
 
     # Testando se a função de geração de senhas está funcionando corretamente
     def test_generate_password(self):
         password = generate_password(10)
-        self.assertEqual(len(password), 10)  # Verifica se o comprimento da senha está correto
-        self.assertTrue(any(char in string.ascii_letters for char in password))  # Verifica se há letras
-        self.assertTrue(any(char in string.digits for char in password))  # Verifica se há dígitos
-        self.assertTrue(any(char in string.punctuation for char in password))  # Verifica se há pontuação
+        self.assertEqual(len(password), 10)
+        self.assertTrue(any(char in string.ascii_letters for char in password))
+        self.assertTrue(any(char in string.digits for char in password))
+        self.assertTrue(any(char in string.punctuation for char in password))
 
     # Testando a função principal simulando entradas do usuário
-    @patch('builtins.input', return_value='10')
-    @patch('builtins.print')
+    @patch('builtins.input', return_value='10')  # Mock para o input
+    @patch('builtins.print')  # Mock para o print
     def test_gerador_de_senhas_valid_input(self, mock_print, mock_input):
         senha = gerador_de_senhas()
         mock_input.assert_called_once_with("Digite o comprimento desejado da senha (número de caracteres): ")
