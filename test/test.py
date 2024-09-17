@@ -1,6 +1,7 @@
 from src.Gerador_de_senhas import gerador_de_senhas, generate_password
 from unittest import TestCase
 from unittest.mock import patch
+import string
 
 class TestGeradorDeSenhas(TestCase):
 
@@ -33,4 +34,3 @@ class TestGeradorDeSenhas(TestCase):
     def test_gerador_de_senhas_invalid_input(self, mock_print, mock_input):
         gerador_de_senhas()
         mock_print.assert_called_with("Por favor, insira um número válido.")
-
